@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        height: 100vh;
+        width: 100vw;
+        background-color: black;
+    }
+    .navbar{
+        width: 100vw;
+        background-color: rgb(50, 49, 49);
+    }
+    .container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .jobCards{
+        justify-content: center;
+        align-items: center;
+    }
+    .card{
+        margin: 30px;
+        background-color: rgb(79, 77, 77);
+        color: black;
+    }
+
+
+</style>
+<body>
+    <div class="nav">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">Jobs</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                <li class="nav-item active">
+                  <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Senior</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Intermediate</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Junior</a>
+                </li>
+              </ul>
+            </div>
+        </nav>  
+    </div>
+    <div class="container">
+        <div class="row" id="jobCards">
+            
+        </div>
+    </div>
+<script>
+    const jobs = [
+    {
+        "id": 1,
+        "company": "Photosnap",
+        "logo": "./images/photosnap.svg",
+        "new": true,
+        "featured": true,
+        "position": "Senior Frontend Developer",
+        "role": "Frontend",
+        "level": "Senior",
+        "postedAt": "1d ago",
+        "contract": "Full Time",
+        "location": "USA Only",
+        "languages": ["HTML", "CSS", "JavaScript"],
+        "tools": []
+    },
+    {
+        "id": 2,
+        "company": "Manage",
+        "logo": "./images/manage.svg",
+        "new": true,
+        "featured": true,
+        "position": "Fullstack Developer",
+        "role": "Fullstack",
+        "level": "Intermediate",
+        "postedAt": "1d ago",
+        "contract": "Part Time",
+        "location": "Remote",
+        "languages": ["Python"],
+        "tools": ["React"]
+    },
+    {
+        "id": 3,
+        "company": "Account",
+        "logo": "./images/account.svg",
+        "new": true,
+        "featured": false,
+        "position": "Junior Frontend Developer",
+        "role": "Frontend",
+        "level": "Junior",
+        "postedAt": "2d ago",
+        "contract": "Part Time",
+        "location": "USA Only",
+        "languages": ["JavaScript"],
+        "tools": ["React", "Sass"]
+    },
+    {
+        "id": 4,
+        "company": "MyHome",
+        "logo": "./images/myhome.svg",
+        "new": false,
+        "featured": false,
+        "position": "Junior Frontend Developer",
+        "role": "Frontend",
+        "level": "Junior",
+        "postedAt": "5d ago",
+        "contract": "Contract",
+        "location": "USA Only",
+        "languages": ["CSS", "JavaScript"],
+        "tools": []
+    },
+    {
+        "id": 5,
+        "company": "Loop Studios",
+        "logo": "./images/loop-studios.svg",
+        "new": false,
+        "featured": false,
+        "position": "Software Engineer",
+        "role": "Fullstack",
+        "level": "Intermediate",
+        "postedAt": "1w ago",
+        "contract": "Full Time",
+        "location": "Worldwide",
+        "languages": ["JavaScript"],
+        "tools": ["Ruby", "Sass"]
+    },
+    {
+        "id": 6,
+        "company": "FaceIt",
+        "logo": "./images/faceit.svg",
+        "new": false,
+        "featured": false,
+        "position": "Junior Backend Developer",
+        "role": "Backend",
+        "level": "Junior",
+        "postedAt": "2w ago",
+        "contract": "Full Time",
+        "location": "UK Only",
+        "languages": ["Ruby"],
+        "tools": ["RoR"]
+    },
+    {
+        "id": 7,
+        "company": "Shortly",
+        "logo": "./images/shortly.svg",
+        "new": false,
+        "featured": false,
+        "position": "Junior Developer",
+        "role": "Frontend",
+        "level": "Junior",
+        "postedAt": "2w ago",
+        "contract": "Full Time",
+        "location": "Worldwide",
+        "languages": ["HTML", "JavaScript"],
+        "tools": ["Sass"]
+    },
+    {
+        "id": 8,
+        "company": "Insure",
+        "logo": "./images/insure.svg",
+        "new": false,
+        "featured": false,
+        "position": "Junior Frontend Developer",
+        "role": "Frontend",
+        "level": "Junior",
+        "postedAt": "2w ago",
+        "contract": "Full Time",
+        "location": "USA Only",
+        "languages": ["JavaScript"],
+        "tools": ["Vue", "Sass"]
+    },
+    {
+        "id": 9,
+        "company": "Eyecam Co.",
+        "logo": "./images/eyecam-co.svg",
+        "new": false,
+        "featured": false,
+        "position": "Full Stack Engineer",
+        "role": "Fullstack",
+        "level": "Intermediate",
+        "postedAt": "3w ago",
+        "contract": "Full Time",
+        "location": "Worldwide",
+        "languages": ["JavaScript", "Python"],
+        "tools": ["Django"]
+    },
+    {
+        "id": 10,
+        "company": "The Air Filter Company",
+        "logo": "./images/the-air-filter-company.svg",
+        "new": false,
+        "featured": false,
+        "position": "Front-end Dev",
+        "role": "Frontend",
+        "level": "Junior",
+        "postedAt": "1mo ago",
+        "contract": "Part Time",
+        "location": "Worldwide",
+        "languages": ["JavaScript"],
+        "tools": ["React", "Sass"]
+    }];
+
+    function createCard(job){
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.style = 'width: 18rem;';
+
+        const img = document.createElement('img');
+        img.src = job.logo;
+        img.className = 'card-img-top';
+        img.alt = 'Company Logo';
+
+        const cardBody = document.createElement('div');
+        cardBody.className = 'card-body';
+
+        const title = document.createElement('h5');
+        title.className = 'card-title';
+        title.textContent = job.position;
+
+        const text = document.createElement('p');
+        text.className = 'card-text';
+        text.textContent = job.languages.join(', ');
+
+        const link = document.createElement('a');
+        link.href = '#';
+        link.className = 'btn btn-primary';
+        link.textContent = 'Open';
+
+        cardBody.appendChild(title);
+        cardBody.appendChild(text);
+        cardBody.appendChild(link);
+
+        card.appendChild(img);
+        card.appendChild(cardBody);
+
+        return card;
+    }
+
+    function arrange(jobsToDisplay){
+            const container = document.getElementById('jobCards');
+            container.innerHTML = ''; 
+
+            jobsToDisplay.forEach(job => {
+                const jobCard = createCard(job);
+                container.appendChild(jobCard);
+            });
+        }
+
+        function filterJobs(level) {
+            if(level == "Home"){
+                const filteredJobs = jobs;
+                arrange(filteredJobs);
+            }
+            else{
+                const filteredJobs = jobs.filter(job => job.level === level);
+                arrange(filteredJobs);
+            }
+        }
+
+        function handleNavigation() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const level = link.textContent.trim();
+                    filterJobs(level);
+                });
+            });
+        }
+
+        arrange(jobs); 
+        handleNavigation(); 
+    </script>
+</body>
+</html>
